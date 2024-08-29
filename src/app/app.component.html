@@ -1,0 +1,53 @@
+<nav class="navbar navbar-dark bg-primary">
+  <a class="navbar-brand" href="/">
+    Angular Simple CRUD
+  </a>
+</nav>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 mt-4">
+      <ul class="list-group">
+        <li
+          *ngFor="let employee of employeeArray"
+          class="list-group-item list-group-item-action"
+          (click)="openForEdit(employee)"
+          [class.active]="employee == selectedEmployee">
+          <span class="badge badge-primary">{{ employee.id }}</span>{{ employee.name }} - {{ employee.country }}
+        </li>
+        <div class="card mt-4">
+          <div class="card-body">
+            <div class="card-title">
+              Insert A new Eployee
+            </div>
+            <div class="form-group my-2">
+              <input type="text" [(ngModel)]="selectedEmployee.name" placeholder="Insert A Name" class="form-control">
+            </div>
+            <div class="form-group my-2">
+              <input type="text" [(ngModel)]="selectedEmployee.country" placeholder="Insert A Country"
+                     class="form-control">
+            </div>
+            <button (click)="addOrEdit()" class="btn btn-primary">
+              Submit
+            </button>
+            <button
+              class="btn btn-danger"
+              (click)="delete()"
+            >
+              Delete
+            </button>
+
+          </div>
+        </div>
+      </ul>
+    </div>
+    <div class="col-md-4">
+      <img width="300"
+           src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/23fc897e-46b5-4401-a3fe-aee121dfb445/dg646g7-e5d01375-cd52-487b-a48a-4d7f45fe19d9.jpg/v1/fill/w_894,h_894,q_70,strp/assassins_creed_logo_mashup_black_by_screapos_dg646g7-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTM3OCIsInBhdGgiOiJcL2ZcLzIzZmM4OTdlLTQ2YjUtNDQwMS1hM2ZlLWFlZTEyMWRmYjQ0NVwvZGc2NDZnNy1lNWQwMTM3NS1jZDUyLTQ4N2ItYTQ4YS00ZDdmNDVmZTE5ZDkuanBnIiwid2lkdGgiOiI8PTEzNzgifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.WojBSFRBJ4DJuSyMPpcQ5dOKfqOc2_PrXiXNAZ9iKq0"
+           alt="">
+    </div>
+  </div>
+</div>
+
+
+
